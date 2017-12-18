@@ -1,0 +1,31 @@
+// General settings :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$desktop-max-width: 1140px;
+$desktop-min-width: 980px;
+$mobile-min-width: 320px;
+$spacing: 20px;
+$radius: 4px;
+$shadow: 0 2px 8px -2px rgba(#000, .3);
+$field-size: 40px;
+
+// Colors :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$blue-dark: #1259C3;
+$blue: #3483FA;
+$yellow: #FFF059;
+$green: #39B54A;
+$black: #111;
+$gray-darker: #333;
+$gray-dark: #666;
+$gray: #999;
+$gray-light: #CCC;
+$gray-lighter: #EEE;
+$white: #FFF;
+
+// Outline
+$outline-color: #55C4F7;
+
+// Typography ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$font-family: 'Work Sans','Roboto', sans-serif;
+$font-size: 16px;
+$font-color: $gray-dark;
+$link-color: $gray-dark;
+$link-over: $black;
