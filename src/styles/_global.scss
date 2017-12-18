@@ -1,0 +1,16 @@
+body {
+  background-color: $gray-light;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.main {
+  padding-top: 60px;
+}
