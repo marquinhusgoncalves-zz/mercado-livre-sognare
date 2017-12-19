@@ -2,7 +2,7 @@ import React from 'react'
 // import PropTypes from 'prop-types';
 import SearchBar from '../search-bar/search-bar'
 
-function Header ( {getValue} ) {
+function Header () {
   return (
     <header className="header">
       <div className="wrapper">
@@ -11,7 +11,7 @@ function Header ( {getValue} ) {
             {/*<img src={logo} className="header-logo" alt="Logo" />*/}
           </a>
         </h1>
-        <SearchBar getValue={getValue} />
+        <SearchBar />
       </div>
     </header>
   );
