@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types';
 import SearchBar from '../search-bar/search-bar'
 
 function Header () {

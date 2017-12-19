@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Product extends PureComponent {
   constructor(props) {
@@ -55,5 +55,13 @@ class Product extends PureComponent {
     );
   }
 }
+
+Product.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }.isRequired)
+  }).isRequired
+};
 
 export default Product;

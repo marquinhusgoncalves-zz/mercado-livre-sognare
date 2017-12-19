@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
 import ProductItem from '../product-item/product-item';
@@ -35,12 +35,18 @@ class ProductList extends PureComponent {
       <section className="main">
         <div className="wrapper">
           <ul className="products-list">
-            {this.state.items && this.state.items.map(item => <ProductItem key={item.id} item={item.id} title={item.title} picture={item.picture} price={item.price.amount} />)}
+            {this.state.items && this.state.items.map(item => <ProductItem key={item.id} id={item.id} title={item.title} picture={item.picture} price={item.price.amount} />)}
           </ul>
         </div>
       </section>
     );
   }
-}
+};
+
+ProductList.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired
+  })
+};
 
 export default ProductList;
