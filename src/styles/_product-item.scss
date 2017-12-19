@@ -1,11 +1,16 @@
 .product-item {
-  padding: 10px;
-  display: flex;
   border-bottom: 1px solid $gray-light;
 
   &:last-child {
     border: 0;
   }
+}
+
+.product-link {
+  padding: 20px;
+  display: flex;
+  text-decoration: none;
+  color: $black;
 }
 
 .product-item-figure {

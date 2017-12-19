@@ -35,7 +35,7 @@ class ProductList extends PureComponent {
       <section className="main">
         <div className="wrapper">
           <ul className="products-list">
-            {this.state.items && this.state.items.map(item => <ProductItem key={item.id} title={item.title} picture={item.picture} price={item.price.amount} />)}
+            {this.state.items && this.state.items.map(item => <ProductItem key={item.id} item={item.id} title={item.title} picture={item.picture} price={item.price.amount} />)}
           </ul>
         </div>
       </section>

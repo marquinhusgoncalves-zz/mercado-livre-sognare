@@ -443,11 +443,15 @@ body {
   padding: 0; }
 
 .product-item {
-  padding: 10px;
-  display: flex;
   border-bottom: 1px solid #CCC; }
   .product-item:last-child {
     border: 0; }
+
+.product-link {
+  padding: 20px;
+  display: flex;
+  text-decoration: none;
+  color: #111; }
 
 .product-item-figure {
   width: 150px;
