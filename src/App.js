@@ -4,6 +4,31 @@ import logo from './ml.png';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: [],
+    };
+  }
+
+  componentDidMount() {
+    this.searchProducts().then((products) => {
+      const { items } = products;
+      if (items && items.length) {
+        this.setState({
+          items
+        });
+      }
+    });
+  }
+
+  searchProducts() {
+    const fetchURL = 'http://localhost:3001/api/items?search=geladeira';
+    return fetch(fetchURL).then(data => data.json());
+  }
+
   render() {
     return (
       <div className="app">
