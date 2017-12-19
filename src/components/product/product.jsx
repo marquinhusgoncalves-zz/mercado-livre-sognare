@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 class Product extends PureComponent {
@@ -16,29 +16,37 @@ class Product extends PureComponent {
 
   fetchProduct() {
     const fetchURL = `http://localhost:3001/api/items/${this.state.id}`;
-    return fetch(fetchURL).then(data => data.json()).then((product) => {
-      const { item } = product;
-      if (item) {
-        this.setState({
-          item
-        });
-      }
-    });
+    return fetch(fetchURL)
+      .then(data => data.json())
+      .then(product => {
+        const { item } = product;
+        if (item) {
+          this.setState({
+            item
+          });
+        }
+      });
   }
 
   render() {
     return (
       <section className="main">
         <div className="wrapper">
-          { this.state.item &&
+          {this.state.item && (
             <div className="product-wrapper-main">
               <section className="product-main">
                 <figure className="product-figure">
-                <img src={this.state.item.picture} className="product-img" alt={this.state.item.title} />
+                  <img
+                    src={this.state.item.picture}
+                    className="product-img"
+                    alt={this.state.item.title}
+                  />
                 </figure>
                 <div className="product-info-area">
                   <h1 className="product-title">{this.state.item.title}</h1>
-                  <p className="product-price">$ {this.state.item.price.amount}</p>
+                  <p className="product-price">
+                    $ {this.state.item.price.amount}
+                  </p>
                   <div className="product-buy">
                     <button className="product-btn-buy">Comprar</button>
                   </div>
@@ -49,7 +57,7 @@ class Product extends PureComponent {
                 <p className="description">{this.state.item.description}</p>
               </section>
             </div>
-          }
+          )}
         </div>
       </section>
     );
@@ -58,9 +66,11 @@ class Product extends PureComponent {
 
 Product.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired
-    }.isRequired)
+    params: PropTypes.shape(
+      {
+        id: PropTypes.string.isRequired
+      }.isRequired
+    )
   }).isRequired
 };
 

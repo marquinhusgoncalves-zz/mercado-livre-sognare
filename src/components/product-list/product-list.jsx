@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
@@ -20,15 +20,19 @@ class ProductList extends PureComponent {
   }
 
   fetchProducts() {
-    const fetchURL = `http://localhost:3001/api/items?search=${this.state.search}`;
-    return fetch(fetchURL).then(data => data.json()).then((products) => {
-      const { items } = products;
-      if (items && items.length) {
-        this.setState({
-          items
-        });
-      }
-    });
+    const fetchURL = `http://localhost:3001/api/items?search=${
+      this.state.search
+    }`;
+    return fetch(fetchURL)
+      .then(data => data.json())
+      .then(products => {
+        const { items } = products;
+        if (items && items.length) {
+          this.setState({
+            items
+          });
+        }
+      });
   }
 
   render() {
@@ -36,16 +40,25 @@ class ProductList extends PureComponent {
       <section className="main">
         <div className="wrapper">
           <ul className="products-list">
-            {(this.state.items && this.state.items === null) ?
-              this.state.items.map(item => <ProductItem key={item.id} id={item.id} title={item.title} picture={item.picture} price={item.price.amount} />) :
+            {this.state.items && this.state.items === null ? (
+              this.state.items.map(item => (
+                <ProductItem
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  picture={item.picture}
+                  price={item.price.amount}
+                />
+              ))
+            ) : (
               <ProductNotFound />
-            }
+            )}
           </ul>
         </div>
       </section>
     );
   }
-};
+}
 
 ProductList.propTypes = {
   location: PropTypes.shape({

@@ -1,13 +1,15 @@
-import React from 'react'
-import SearchBar from '../search-bar/search-bar'
+import React from 'react';
+import SearchBar from '../search-bar/search-bar';
 
-function Header () {
+import logo from '../../../src/ml.png';
+
+function Header() {
   return (
     <header className="header">
       <div className="wrapper">
         <h1 className="header-title">
           <a href="http://localhost:3000/">
-            {/*<img src={logo} className="header-logo" alt="Logo" />*/}
+            <img src={logo} className="header-logo" alt="Logo" />
           </a>
         </h1>
         <SearchBar />
