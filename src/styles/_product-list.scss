@@ -1,39 +1,5 @@
-.product-list {
+.products-list {
   width: 100%;
   background-color: $white;
   padding: 0;
-}
-
-.product {
-  padding: 10px;
-  display: flex;
-  border-bottom: 1px solid $gray-light;
-
-  &:last-child {
-    border: 0;
-  }
-}
-
-.product-figure {
-  width: 150px;
-  height: 150px;
-  margin-right: 15px;
-}
-
-.product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.product-title {
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.product-price {
-  font-size: 25px;
-  font-weight: 500;
-  color: $gray-darker;
-  margin: 0;
 }
