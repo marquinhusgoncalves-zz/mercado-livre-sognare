@@ -11,7 +11,12 @@ class Product extends PureComponent {
   }
 
   componentDidMount() {
-    this.fetchProduct().then((product) => {
+    this.fetchProduct();
+  }
+
+  fetchProduct() {
+    const fetchURL = `http://localhost:3001/api/items/${this.state.id}`;
+    return fetch(fetchURL).then(data => data.json()).then((product) => {
       const { item } = product;
       if (item) {
         this.setState({
@@ -19,11 +24,6 @@ class Product extends PureComponent {
         });
       }
     });
-  }
-
-  fetchProduct() {
-    const fetchURL = `http://localhost:3001/api/items/${this.state.id}`;
-    return fetch(fetchURL).then(data => data.json());
   }
 
   render() {
