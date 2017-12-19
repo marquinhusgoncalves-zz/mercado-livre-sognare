@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
+import Header from './components/header/header'
+import ProductList from './components/product-list/product-list'
 import logo from './ml.png';
-// import spinner from './spinner.svg';
 import './App.css';
 
 class App extends Component {
-
   constructor(props) {
     super(props);
-
-    this.state = {
-      items: [],
-    };
+    this.state = { search: '' };
+    this.getValue = this.getValue.bind(this);
+    this.searchProducts = this.searchProducts.bind(this);
   }
 
-  componentDidMount() {
-    this.searchProducts().then((products) => {
+  getValue (search) {
+    this.setState({search}, this.searchProducts);
+  }
+
+  searchProducts() {
+    this.fetchProducts().then((products) => {
       const { items } = products;
       if (items && items.length) {
         this.setState({
@@ -24,62 +27,19 @@ class App extends Component {
     });
   }
 
-  searchProducts() {
-    const fetchURL = 'http://localhost:3001/api/items?search=geladeira';
+  fetchProducts() {
+    const fetchURL = `http://localhost:3001/api/items?search=${this.state.search}`;
     return fetch(fetchURL).then(data => data.json());
   }
 
   render() {
     return (
       <div className="app">
-        <header className="header">
-          <div className="wrapper">
-            <h1 className="header-title">
-              <a href="http://localhost:3000/">
-                <img src={logo} className="header-logo" alt="Logo" />
-              </a>
-            </h1>
-            <form className="search-bar">
-              <input type="text" className="search-input" autofocus placeholder="O que você procura..."/>
-              <button className="search-button">Buscar
-                <i className="search-icon"></i>
-              </button>
-            </form>
-          </div>
-        </header>
-        <section className="main">
-          <div className="wrapper">
-            <ul className="product-list">
-              <li className="product">
-                <figure className="product-figure">
-                  <img src="" alt="Imagem Produto"/>
-                </figure>
-                <div className="product-info">
-                  <h2 className="product-title">Nome do Produto</h2>
-                  <p className="product-price">$ 1.980</p>
-                </div>
-              </li>
-              <li className="product">
-                <figure className="product-figure">
-                  <img src="" alt="Imagem Produto" />
-                </figure>
-                <div className="product-info">
-                  <h2 className="product-title">Nome do Produto</h2>
-                  <p className="product-price">$ 1.980</p>
-                </div>
-              </li>
-              <li className="product">
-                <figure className="product-figure">
-                  <img src="" alt="Imagem Produto" />
-                </figure>
-                <div className="product-info">
-                  <h2 className="product-title">Nome do Produto</h2>
-                  <p className="product-price">$ 1.980</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
+        <Header getValue={this.getValue} />
+        {
+          this.state.items &&
+          <ProductList items={this.state.items} />
+        }
         <div className="product wrapper">
           <div className="product-wrapper-main">
             <section className="product-main">
