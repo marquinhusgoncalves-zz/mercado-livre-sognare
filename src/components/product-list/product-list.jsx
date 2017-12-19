@@ -40,7 +40,7 @@ class ProductList extends PureComponent {
       <section className="main">
         <div className="wrapper">
           <ul className="products-list">
-            {this.state.items && this.state.items === null ? (
+            {this.state.items && this.state.items !== null ? (
               this.state.items.map(item => (
                 <ProductItem
                   key={item.id}
